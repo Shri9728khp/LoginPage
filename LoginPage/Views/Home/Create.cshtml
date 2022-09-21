@@ -1,0 +1,269 @@
+﻿@model LoginPage.Models.EmpData
+
+@{
+    ViewBag.Title = "Create";
+
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal alert-success">
+        <h4>UserSignup</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.First_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control", placeholder = "First_Name" } })
+                @Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Last_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Last_Name" } })
+                @Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone_Number, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone_Number" } })
+                @Html.ValidationMessageFor(model => model.Phone_Number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Practice_Field, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Practice_Field, new { htmlAttributes = new { @class = "form-control", placeholder = "Practice_Field" } })
+                @Html.ValidationMessageFor(model => model.Practice_Field, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Role, new { htmlAttributes = new { @class = "form-control", placeholder = "Role" } })
+                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default alert-danger" />
+                @Html.ActionLink("CLICK Back Login", "Login")
+            </div>
+        </div>
+    </div>
+}
+<style>
+
+    h4, .h4, h5, .h5, h6, .h6 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 257px;
+    }
+</style>
+
+
+
+
+@*@{ ViewBag.Title = "Create";
+    }
+    <h1>Sign Up</h1>
+
+    @model LoginPage.Models.EmpData
+    <div class=" mt-sm-3 btn-primary">
+
+    </div>
+    @using (Html.BeginForm("Create", "Home", FormMethod.Post))
+    {
+    @Html.HiddenFor(m => m.UserId)
+                    <section>
+                        <div class="container" style="padding:0px;margin-top:5px">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="bg-light-color1 bg-info py-2">
+                                                <div class="row">
+                                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                                        <div class="form-group mb-0 bg-warning" data-toggle="tooltip" data-placement="top" title="First Name">
+
+                                                            @Html.TextBoxFor(m => m.First_Name, new { @class = "form-control", @required = "required", placeholder = "First Name" })
+                                                            @Html.ValidationMessageFor(m => m.First_Name, "", new { @class = "error" })
+                                                        </div><br>
+                                                    </div>
+                                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Last Name">
+
+                                                            @Html.TextBoxFor(m => m.Last_Name, new { @class = "form-control", placeholder = "Last Name" })
+                                                            @Html.ValidationMessageFor(m => m.Last_Name, "", new { @class = "error" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Email">
+
+                                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Password">
+
+                                                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Phone No">
+
+                                                            @Html.TextBoxFor(m => m.Phone_Number, new { @class = "form-control", placeholder = "Phone Number" })
+                                                            @Html.ValidationMessageFor(m => m.Phone_Number, "", new { @class = "error" })
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Practice Field">
+
+                                                            @Html.TextBoxFor(m => m.Practice_Field, new { @class = "form-control", placeholder = "Practice Field" })
+                                                            @Html.ValidationMessageFor(m => m.Practice_Field, "", new { @class = "error" })
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-9 col-lg-4 mt-2 mt-sm-4">
+                                                        <div class="form-group mb-0 bg-light-color1" data-toggle="tooltip" data-placement="top" title="Role">
+
+                                                            @Html.TextBoxFor(m => m.Role, new { @class = "form-control", placeholder = "Role" })
+                                                            @Html.ValidationMessageFor(m => m.Role, "", new { @class = "error" })
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div><button type="submit" class=" theme-btn1 my-1 btn btn-success">Save</button></div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+         }
+
+
+    @section   Scripts {
+        <environment names="Development,Staging,Production">
+
+            <style>
+                .lable {
+                    margin: 0px;
+                    padding: 0px;
+                    font-size: 100px;
+                }
+
+                .btn-primary {
+                    color: #fff;
+                    background-color: #337ab7;
+                    margin-left: -103px;
+                    margin-right: -105px;
+                    border-color: #2e6da4;
+                }
+
+                .btn {
+                    font-size: 15px;
+                }
+
+                .main-content {
+                    min-height: 0px !important;
+                }
+
+                h1, .h1, h2, .h2, h3, .h3 {
+                    margin-top: 20px;
+                    margin-left: 388px;
+                    margin-right: 134px;
+                    margin-bottom: 10px;
+                }
+
+                .accordion .fa {
+                    margin-right: 0.5rem;
+                }
+
+                .card .card-body {
+                    padding: 10px;
+                }
+
+                .data-placeholder {
+                    color: #0094ff
+                }
+
+                .alert-success {
+                    color: #3c763d;
+                    background-color: #dff0d8;
+                    margin-left: -100px;
+                    margin-right: -75px;
+                    border-color: #d6e9c6;
+                }
+
+                .card-header {
+                    padding: 0px;
+                }
+
+                .h2 {
+                    padding: 0px;
+                }
+
+                .form-group {
+                    color: #0094ff;
+                    margin-bottom: 58px;
+                }
+
+
+
+                .alert-info {
+                    color: #000000;
+                    margin-left: 4px;
+                    margin-right: 4px;
+                    background-color: #d9edf7;
+                    border-color: #bce8f1;
+                }
+            </style>
+            <style>
+                .main-content {
+                    min-height: 0px !important;
+                }
+            </style>
+            <script>
+                $(function () {
+                    $('[data-toggle="tooltip"]').tooltip()
+                })
+            </script>
+
+        </environment>*@
+@*}*@

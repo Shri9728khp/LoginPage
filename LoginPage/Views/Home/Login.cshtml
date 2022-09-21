@@ -1,0 +1,112 @@
+﻿@model LoginPage.Models.EmpData
+<h2>Login</h2>
+<h1 class="table-bordered btn btn-primary">Registation form</h1>
+<section class="text-center">
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+    margin-top: -100px;
+    background: hsla(0, 0%, 100%, 0.8);
+    backdrop-filter: blur(30px);
+    ">
+        <style>            .form-check-label {
+                margin-left: 16px;
+            }
+           
+        </style>
+        <div class="card-body py-5 px-md-5">
+            
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-5">Login now</h2>
+                    <div class="alert-success">
+                        @if (ViewData["LoginId"] != null)
+
+                        {
+                            @ViewData["LoginId"]
+                        }
+                    </div>
+                    <form asp-controller="Home" asp-action="Crear" method="post">
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="form-group col-lg- text-center-5">
+                            <label class="text-center">Email</label>
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @required = "required" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+
+
+                        </div>
+                        <div class="form-group col-lg- text-center">
+                            <label class="text-center">Password</label>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @required = "required" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+                        </div>
+
+
+                        <div class="form-check d-flex justify-content-center mb-4">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="UserId" checked />
+                            <label class="form-check-label" for="UserId">
+
+                            </label>
+                        </div>
+
+                        Submit button
+                        <button type="submit" class="btn btn-primary btn-block mb-2">
+                            Sign up
+                           
+                        </button>
+                        <div class="divider d-flex align-items-center my-4">
+                            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+                        </div>
+                        <div> @Html.ActionLink("Back On SignUp", "Create")</div>
+                        <a class="btn btn-primary btn-lg btn-3" style="background-color: #3b5998" href="#!" role="button">
+                            <i class="fab fa-facebook-f me-2"></i> Facebook
+                            
+                        </a>
+                        <a class="btn btn-primary btn-lg btn-3" style="background-color: #55acee" href="#!" role="button">
+                            <i class="fab fa-twitter me-2"></i> Twitter
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</section>
+<style>
+
+
+    .form-control {
+       
+        display: table-caption;
+        width: 69%;
+        height: 39px;
+        margin-top: 34px;
+        margin-bottom: 33px;
+        /* margin-top: 34px; */
+        margin-left: 78px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    }
+
+    .form-group {
+        margin-bottom: -12px;
+   
+    }
+
+    input, select, textarea {
+        max-width: 280px;
+    }
+</style>
